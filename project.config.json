@@ -1,0 +1,18 @@
+{
+	"miniprogramRoot": "dist/",
+	"projectname": "taro-typescript",
+	"description": "taro-typescript",
+	"appid": "touristappid",
+	"setting": {
+		"urlCheck": false,
+		"es6": false,
+		"postcss": false,
+		"minified": false,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "0.0.1",
+	"condition": {}
+}
+
+
