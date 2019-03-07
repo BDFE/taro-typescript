@@ -1,0 +1,17 @@
+.main {
+  background: #ccc;
+  height: 200rpx;
+}
+
+.detail {
+  background: #ccc;
+  height: 700px;
+}
+
+.inline {
+  display: inline;
+}
+
+.block {
+  display: inline-block;
+}
