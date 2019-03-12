@@ -60,13 +60,18 @@ class Index extends Component<{}, IState> {
               })
             }}
             confirm={(lnglat) => {
+              console.log('confirm')
+              this.confirmLoc()
+            }}
+            onConfirm={(lnglat) => {
+              console.log('onConfirm')
               this.confirmLoc()
             }}
           >
           </MyMap>
         </View>
         <View className='panel_wraper'>
-          <Panel 
+          <Panel
             showPanel={showPanel}
           />
         </View>

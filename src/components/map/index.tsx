@@ -1,5 +1,5 @@
 import Taro, { Component } from '@tarojs/taro'
-import { View, Text, Map } from '@tarojs/components'
+import { View, Text, Image, Map } from '@tarojs/components'
 import './index.css'
 
 
@@ -23,6 +23,7 @@ interface IState {
 interface IProps {
   test: string,
   onRegionchange?: any,
+  onConfirm?: any,
   confirm?: any,
   [propName: string]: any,
 }
@@ -44,7 +45,7 @@ class MyMap extends Component<IProps, IState> {
       Taro.getLocation({
         success: (res) => {
           this.updateCenterLocation(res);
-          this.confirmLocation();
+          this.onConfirmLocation();
         }
       })
     }
@@ -57,9 +58,17 @@ class MyMap extends Component<IProps, IState> {
   //   return flag;
   // }
 
-  confirmLocation() {
-    let fn = this.props.confirm;
+  onConfirmLocation() {
+    console.log('...')
+    let fn = this.props.onConfirm;
+
     fn && fn({
+      longitude: this.state.longitude,
+      latitude: this.state.latitude,
+    })
+
+    let fn2 = this.props.confirm;
+    fn2 && fn2({
       longitude: this.state.longitude,
       latitude: this.state.latitude,
     })
@@ -152,7 +161,7 @@ class MyMap extends Component<IProps, IState> {
             <View className="text">
               {centerInfo}
             </View>
-            <View className="ok" onClick={this.confirmLocation.bind(this)}>
+            <View className="ok" onClick={this.onConfirmLocation.bind(this)}>
               {!!centerInfo ? '确定' : ''}
             </View>
           </View>
